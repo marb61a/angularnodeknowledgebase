@@ -29,7 +29,7 @@ module.exports.getArticlesByCategory = function(category, callback){
 	Article.find(query, callback);
 };
 
-// Get Article By ID
+// Create a category 
 module.exports.createCategory = function(newCategory, callback){
 	newCategory.save(callback);
 };
