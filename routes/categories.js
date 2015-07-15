@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Category = require('../models/category');
 
-//GET users listing. 
+
 router.get('/', function(req, res, next) {
   Category.getCategories(function(err, categories){
   	if(err){
