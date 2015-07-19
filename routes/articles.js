@@ -37,14 +37,14 @@ router.post('/', function(req, res, next){
 	var category = req.body.category;
 	var body = req.body.body;
 	
-	// Constructs article object
+// Constructs article object
 	var newArticle = new Article({
 		title: title,
 		category: category,
 		body: body
 	});
 	
-	// Call the create article method
+// Call the create article method
 	Article.createArticle(newArticle, function(err, article){
 	  if(err){
 			console.log(err);
@@ -66,7 +66,7 @@ router.put('/', function(req, res, next){
 		body: req.body.body
 	};
 	
-	// Create an article
+// Create an article
 	Article.updateArticle(id, data, function(err, article){
 	  if(err){
  			console.log(err);
