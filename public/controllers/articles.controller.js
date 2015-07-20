@@ -1,4 +1,5 @@
 angular.module("kB")
+
     .controller('ArticlesCtrl', ['$scope','$http', function($scope, $http){
     	$http.get('/articles').success(function(data){
     		$scope.articles = data;
@@ -12,18 +13,18 @@ angular.module("kB")
 	    });
     }])
     
-    .controller('ArticlesDetailsCtrl', ['$scope','$http', '$routeParams' , '$location', function($scope, $http, $routeParams, $location){
-        $http.get('/articles/'+$routeParams.id).success(function(data){
-	        $scope.article = data;
-	    }); 
-	    
-	    $scope.removeArticle = function(){
-	        $http.delete('/articles/'+$routeParams.id).success(function(data){
-			console.log(data);
-		});
+    .controller('ArticleDetailsCtrl', ['$scope','$http', '$routeParams', '$location', function($scope, $http, $routeParams, $location){
+    	$http.get('/articles/'+$routeParams.id).success(function(data){
+    		$scope.article = data;
+    	});
 
-		    $location.path('/articles');
-	    };
+    	$scope.removeArticle = function(){
+    		$http.delete('/articles/'+$routeParams.id).success(function(data){
+    			console.log(data);
+    		});
+    
+    		$location.path('/articles');
+    	}
     }])
     
     .controller('ArticleCreateCtrl', ['$scope','$http','$routeParams', '$location', function($scope, $http, $routeParams, $location){
@@ -39,8 +40,8 @@ angular.module("kB")
             };
             
             $http.post('/articles', data).success(function(data, status){
-                console.log(status);
-            });
+			    console.log(status);
+		    });
             
             $location.path('/articles');
         };
